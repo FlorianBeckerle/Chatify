@@ -2,8 +2,8 @@
 
 Beschreibung: Chatserver
 
-Team: Beckerle Florian
-      John Lim
+Team: Beckerle Florian,
+	John Lim
       
 Projekthintergrund: Einfacher Chat für zwei oder mehreren Usern
 
@@ -15,4 +15,4 @@ Chatify wird in Java geschrieben und verwendet für die Connections „Java Sock
 Die Benutzeroberfläche wird mithilfe von Gluon Scene Builder erstellt und basiert auf JavaFX, welches für ein einfaches und benutzerfreundliches UI sorgt.
 Die Nachrichten sowie Userdaten und Interaktionen-Logs werden alle in Datenbanken gespeichert.
 
-- Projekt noch in Bearbeitung -
+- Projekt noch in Bearbeitung 
