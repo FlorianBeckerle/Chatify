@@ -82,6 +82,9 @@ public class LoginRegisterC {
         inputUsernameR.textProperty().unbindBidirectional(current.nameProperty());
         inputEmailR.textProperty().unbindBidirectional(current.emailProperty());
         inputPasswordR.textProperty().unbindBidirectional(current.passwordProperty());
+        inputUsernameL.textProperty().unbindBidirectional(current.nameProperty());
+        inputPasswordL.textProperty().unbindBidirectional(current.passwordProperty());
+        
     } 
     
     // show funktion, zeigt die fxml an
@@ -96,9 +99,9 @@ public class LoginRegisterC {
             }
             stage.setScene(scene);
             stage.setTitle("CHATIFY! Register");
-            LoginRegisterC LoginRegisterC = (LoginRegisterC) loader.getController();        // controller erstellen
-            LoginRegisterC.statement = statement;                                           // datenbankzugriff merken
-            LoginRegisterC.init();
+            LoginRegisterC loginRegisterC = (LoginRegisterC) loader.getController();        // controller erstellen
+            loginRegisterC.statement = statement;                                           // datenbankzugriff merken
+            loginRegisterC.init();
             stage.show();                                                                  // view anzeigen
         } catch (IOException ex) {
             Logger.getLogger(LoginRegisterC.class.getName()).log(Level.SEVERE, null, ex);
@@ -113,10 +116,37 @@ public class LoginRegisterC {
     }
     
     private void init(){
+        //Anpassen auf Login/Register
+        
         setCurrent(new User());
-        inputUsernameR.textProperty().bindBidirectional(current.nameProperty());
-        inputEmailR.textProperty().bindBidirectional(current.emailProperty());
-        inputPasswordR.textProperty().bindBidirectional(current.passwordProperty());
+        
+        if(isLogin == false){
+        
+            //setCurrent(new User()); 
+            inputUsernameR.textProperty().bindBidirectional(current.nameProperty());
+            inputEmailR.textProperty().bindBidirectional(current.emailProperty());
+            inputPasswordR.textProperty().bindBidirectional(current.passwordProperty());
+        
+        }else{
+            inputUsernameL.textProperty().bindBidirectional(current.nameProperty());
+            inputPasswordL.textProperty().bindBidirectional(current.passwordProperty());
+        }
+        
+    }
+    
+    private void changeBindings(){
+        if(isLogin == false){
+            resetBindings();
+            //setCurrent(new User()); 
+            inputUsernameR.textProperty().bindBidirectional(current.nameProperty());
+            inputEmailR.textProperty().bindBidirectional(current.emailProperty());
+            inputPasswordR.textProperty().bindBidirectional(current.passwordProperty());
+        
+        }else{
+            resetBindings();
+            inputUsernameL.textProperty().bindBidirectional(current.nameProperty());
+            inputPasswordL.textProperty().bindBidirectional(current.passwordProperty());
+        }
     }
 
     public User getCurrent() {
@@ -133,6 +163,9 @@ public class LoginRegisterC {
         contentLogin.setVisible(false);
         contentRegister.setVisible(true);
         backToLoginBtn.setVisible(true);
+        
+        isLogin = false;
+        changeBindings();
     }
 
     // switch to login
@@ -141,11 +174,28 @@ public class LoginRegisterC {
         contentRegister.setVisible(false);
         contentLogin.setVisible(true);
         backToLoginBtn.setVisible(false);
+        
+        isLogin = true;
+        changeBindings();
+    
     }
 
     // login user
     @FXML
     private void loginUser(ActionEvent event) {
+        try {
+            System.out.println("#########USER#########");
+            System.out.println("Username: " + inputUsernameL.getText());
+            System.out.println("Passwort: " + inputPasswordL.getText());
+            current.loginVerify(statement, inputUsernameL.getText(),inputPasswordL.getText(), errorUsernameL, errorPasswordL);
+            //current.createNewUser(statement); //inputUsernameR.getText(), inputEmailR.getText(), inputPasswordR.getText(), 
+            
+            resetBindings();
+            
+            ApplicationC.show(stage, statement, inputUsernameL.getText(), inputPasswordL.getText());
+        } catch (Exception ex) {
+            Logger.getLogger(LoginRegisterC.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // register user
@@ -167,7 +217,7 @@ public class LoginRegisterC {
                                    errorPasswordRepeatR,
                                    errorEmailR
                                    );
-            current.createNewUser(inputUsernameR.getText(), inputEmailR.getText(), inputPasswordR.getText(), statement);
+            current.createNewUser(statement); //inputUsernameR.getText(), inputEmailR.getText(), inputPasswordR.getText(), 
             
             resetBindings();
             

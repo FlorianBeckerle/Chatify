@@ -1,6 +1,7 @@
 package chatify.models;
 
 import chatify.loginregister.LoginRegisterC;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -9,9 +10,12 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.control.Label;
 
 public class User {
+    private final StringProperty userid = new SimpleStringProperty();
     private final StringProperty name = new SimpleStringProperty();
     private final StringProperty email = new SimpleStringProperty();
     private final StringProperty password = new SimpleStringProperty();
@@ -22,8 +26,15 @@ public class User {
         password.setValue(null);
     }
     
+    public User(String userid, String name, String email, String password){
+        setUserId(userid);
+        setName(name);
+        setEmail(email);
+        setPassword(password);
+    }
+    
     //daten einfügen
-    public void createNewUser(String username, String email, String password, Statement statement){
+    public void createNewUser( Statement statement){ //String username, String email, String password,
         try {
             String sql = "insert into benutzer (userid, "
                             + "username, "
@@ -31,14 +42,93 @@ public class User {
                             + "password, "
                             + "createdat) "
                             + "values(next value for seq_user, "
-                            + "'"+ username
-                            +"', '"+ email
-                            +"', '"+ password
+                            + "'"+ name.get()
+                            +"', '"+ email.get()
+                            +"', '"+ password.get()
                             +"', CURRENT_DATE)";
             statement.executeUpdate(sql);
+            System.out.println(name);
         } catch (SQLException ex) {
             Logger.getLogger(LoginRegisterC.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    
+    public void loginVerify(Statement statement, String inputUsernameL, String inputPasswordL, Label errorUsernameL, Label errorPasswordL) throws Exception{
+        // USERNAME
+        if(inputUsernameL == null || inputUsernameL == "") {
+            errorUsernameL.setText("Username darf nicht leer stehen!");
+            throw new Exception("username fehler: darf nicht leer stehen!");
+        }else {
+            errorUsernameL.setText("");
+        }
+        
+        if(inputPasswordL == null || inputPasswordL == "") {
+            errorPasswordL.setText("Passwort darf nicht leer stehen!");
+            throw new Exception("Passwort fehler: darf nicht leer stehen!");
+        }else {
+            errorPasswordL.setText("");
+        }
+        
+        if(!verifyUser(statement, inputUsernameL,inputPasswordL)){
+            errorUsernameL.setText("Username oder Passwort stimmt nicht!");
+            throw new Exception("Username oder Passwort stimmt nicht!");
+        }else {
+            errorUsernameL.setText("");
+        }
+        
+    }
+    public void getUser(Statement statement, String username){
+        try {
+            String sql = "select * from benutzer where username = '" + username +"'";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()){
+                name.setValue(rs.getString("username"));
+                email.setValue(rs.getString("email"));
+                password.setValue(rs.getString("password"));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public ObservableList<User> getUsers(Statement statement, String chatroomid) {
+        try {
+            String sql = "select * from benutzer b"; //Einschränkung fehlt nocht
+            if(chatroomid != null){
+                sql+= ", chatparticipants c where b.userid = c.user_userid and c.chatroom_chatroomid ="+ chatroomid;
+            }
+            sql+= " order by b.username asc";
+            ResultSet rs = statement.executeQuery(sql);
+            ObservableList<User> users = FXCollections.observableArrayList();
+            while (rs.next()) {
+                System.out.println(rs.getString("userid") +" | "+ rs.getString("username") +" | "+ rs.getString("email") +" | "+ rs.getString("password"));
+                users.add(new User(rs.getString("userid"), rs.getString("username"), rs.getString("email"), rs.getString("password")));
+            }
+
+            return users;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Chatroom.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
+    }
+    
+    public Boolean verifyUser(Statement statement, String inputUsernameL, String inputPasswordL){
+        try {
+            String sql = "select password from benutzer where username = '" + inputUsernameL +"' and password = '" + inputPasswordL + "'";
+            ResultSet rs = statement.executeQuery(sql);
+            while (rs.next()){
+                 return true;
+            }
+            
+            return false;
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
+            return false;
+        }
+        
     }
     
     // daten prüfen
@@ -139,6 +229,19 @@ public class User {
             errorEmail.setText("");
         }
     }
+    
+    @Override
+    public String toString(){
+        return name.get();
+    }
+    
+    private void setUserId(String value) {
+      userid.set(value);
+    }
+
+    public StringProperty userIdProperty() {
+      return userid;
+    }
 
     private void setName(String value) {
       name.set(value);
@@ -162,6 +265,10 @@ public class User {
 
     public StringProperty emailProperty() {
       return email;
+    }
+    
+    public String getUserId() {
+        return userid.get();
     }
     
     public String getName() {

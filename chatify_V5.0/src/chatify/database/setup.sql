@@ -82,7 +82,8 @@ ALTER TABLE message
         REFERENCES benutzer ( userid );
 
 
-
+--Chatroom Name (länge 20 Zeichen, not null) hinzufügen
+alter table chatroom add column name varchar(20) not null default 'New Chatroom';
 
 --Tabellen ausgeben
 select * from benutzer;
@@ -94,12 +95,16 @@ insert into benutzer (userid, username, email, password, createdat) values(next 
 
 -- Chatroom erstellen
 insert into CHATROOM(CHATROOMID, CREATEDAT) values(next value for seq_chatroom, CURRENT_DATE);
+insert into CHATROOM(CHATROOMID, CREATEDAT, NAME) values(next value for seq_chatroom, CURRENT_DATE, '2ter Chatroom');
 
 -- Message erstellen
 insert into MESSAGE (MESSAGEID, MESSAGECONTENT, CREATEDAT, USER_USERID, CHATROOM_CHATROOMID) values(next value for seq_message, 'Willkommen in Chatify! Das hier ist eine Testnachricht.', CURRENT_DATE, 2, 1);
 
 -- Username und Password aus der Datenbank hohlen mit Variablen als Suchkriterien
-select username, password from benutzer where username = 'Xodeen';
+select password from benutzer where username = 'Xodeen';
 
 --Nachschauen ob Username bereits Existiert
 select count(*) from benutzer where username ='Xodeen';
+
+
+select * from benutzer order by username desc;
