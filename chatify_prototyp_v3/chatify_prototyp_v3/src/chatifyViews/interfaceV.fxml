@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatifyControllers.interfaceC">
+   <children>
+      <VBox prefHeight="600.0" prefWidth="1000.0">
+         <children>
+            <Pane prefHeight="100.0" prefWidth="1000.0" style="-fx-background-color: FF4500;">
+               <children>
+                  <Circle fill="WHITE" layoutX="966.0" layoutY="50.0" radius="20.0" stroke="BLACK" strokeMiterLimit="0.0" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Text fx:id="staticUsername" layoutX="848.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </Text>
+               </children>
+            </Pane>
+            <Pane prefHeight="500.0" prefWidth="1000.0">
+               <children>
+                  <HBox prefHeight="500.0" prefWidth="1000.0">
+                     <children>
+                        <Pane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #191919;" />
+                        <Pane prefHeight="500.0" prefWidth="600.0">
+                           <children>
+                              <Pane prefHeight="460.0" prefWidth="600.0" />
+                              <Pane layoutY="460.0" prefHeight="40.0" prefWidth="600.0" style="-fx-background-color: #323232;" />
+                           </children>
+                        </Pane>
+                        <Pane prefHeight="500.0" prefWidth="200.0" style="-fx-background-color: #191919;" />
+                     </children>
+                  </HBox>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</Pane>
