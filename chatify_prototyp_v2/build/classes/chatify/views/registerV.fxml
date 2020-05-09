@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane prefHeight="800.0" prefWidth="500.0" style="-fx-background-color: #f2f2f2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="register.RegisterVController">
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+   <children>
+      <Pane layoutX="50.0" layoutY="50.0" prefHeight="700.0" prefWidth="400.0">
+         <children>
+            <Label text="Registrieren">
+               <font>
+                  <Font name="Segoe UI Semibold Italic" size="30.0" />
+               </font>
+               <padding>
+                  <Insets bottom="10.0" right="10.0" top="120.0" />
+               </padding>
+            </Label>
+            <Label layoutY="175.0" text="Lege dir jetzt einen neuen Account an!">
+               <font>
+                  <Font name="Segoe UI Bold" size="16.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="10.0" right="10.0" />
+               </padding>
+            </Label>
+            <Label layoutY="204.0" text="Fülle bitte die Felder aus um fortzufahren" textFill="#7f7f7f">
+               <font>
+                  <Font name="Segoe UI Bold" size="16.0" />
+               </font>
+               <padding>
+                  <Insets bottom="50.0" right="10.0" top="10.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="inputUsername" layoutY="283.0" prefHeight="40.0" prefWidth="400.0" promptText="Benutzername" style="-fx-border-color: #f2f2f2;">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Pane layoutY="323.0" prefHeight="20.0" prefWidth="400.0" />
+            <TextField fx:id="inputPassword" layoutY="343.0" prefHeight="40.0" prefWidth="400.0" promptText="Passwort" style="-fx-border-color: #f2f2f2;">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Pane layoutY="383.0" prefHeight="20.0" prefWidth="400.0" />
+            <TextField fx:id="inputPassword1" layoutY="403.0" prefHeight="40.0" prefWidth="400.0" promptText="Passwort wiederholen" style="-fx-border-color: #f2f2f2;">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Pane layoutY="443.0" prefHeight="20.0" prefWidth="400.0" />
+            <TextField fx:id="inputPassword11" layoutY="463.0" prefHeight="40.0" prefWidth="400.0" promptText="E-Mail (Optional)" style="-fx-border-color: #f2f2f2;">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </TextField>
+            <Pane layoutY="503.0" prefHeight="20.0" prefWidth="400.0" />
+            <Button fx:id="btnLogin" layoutY="523.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="400.0" style="-fx-background-color: #48C9B0;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+      <Button fx:id="btnClose" layoutX="438.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: none;" text="✕" textFill="#48c9b0">
+         <font>
+            <Font name="Segoe UI Black" size="20.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBack" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" style="-fx-background-color: none;" text="&lt;" textFill="#48c9b0">
+         <font>
+            <Font name="Segoe UI Bold" size="20.0" />
+         </font>
+      </Button>
+   </children>
+</Pane>
