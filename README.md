@@ -17,26 +17,34 @@ Die Nachrichten sowie Userdaten und Interaktionen-Logs werden alle in Datenbanke
 
 - Projekt noch in Bearbeitung 
 
- 
- 
-
 Fortschritt (Mit Fortschrittsliste abgeglichen)
 
-28.03.2020
+28.03.2020 (ChatifyAnimation, chatify_prototyp_v0_register)
 - Erstellung eines Designs für Animationen, welche am Ende des Projektes bei der Login&Register Seite sowie auf der Applikation selbst implementiert wird.
 - Erstellung eines Designs für die Registrierung.
 
-08.04.2020
+08.04.2020 (chatify_v1.0_prototyp)
 - Erstellung des ersten Prototyps mit View und Controller.
 - Verbesserung durch implementierung von CSS und bessere Dateistruktur sowie Ordnerstruktur
 
-19.04.2020
+19.04.2020 (chatify_v2.0_prototyp, chatify_v3.0_prototyp)
 - Seperates Registrierungsfenster und Loginfenster wird zu einem Fenster fusioniert.
 - Implementierung der Datenbank
 
-01.05.2020
+01.05.2020 (chatify_v4.0_prototyp)
 - Wechsel von Login auf Register möglich.
 - Erstellung eines Users möglich
 - Anzeige des Usernames auf der Applikation.
+
+09.05.2020 (chatify_v5.0_prototyp)
+- Überprüfungung for Register erneuert
+- Überprüfungen für Login implementiert
+
+- Login ermöglichen
+- Login&Register Fenster schließen
+- Roter / Grüner Border bei Input Felder
+- AGB Check
+- Chat Eingabe
+
 
 Für nähere Details steht die Excel Datei "Fortschrittsliste" zur Verfügung.
