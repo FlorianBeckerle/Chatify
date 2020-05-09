@@ -16,3 +16,24 @@ Die Benutzeroberfläche wird mithilfe von Gluon Scene Builder erstellt und basie
 Die Nachrichten sowie Userdaten und Interaktionen-Logs werden alle in Datenbanken gespeichert.
 
 - Projekt noch in Bearbeitung 
+
+
+
+Fortschritt (Mit Fortschrittsliste abgeglichen)
+
+28.03.2020
+- Erstellung eines Designs für Animationen, welche am Ende des Projektes bei der Login&Register Seite sowie auf der Applikation selbst implementiert wird.
+- Erstellung eines Designs für die Registrierung.
+
+08.04.2020
+- Erstellung des ersten Prototyps mit View und Controller.
+- Verbesserung durch implementierung von CSS und bessere Dateistruktur sowie Ordnerstruktur
+
+19.04.2020
+- Seperates Registrierungsfenster und Loginfenster wird zu einem Fenster fusioniert.
+- Implementierung der Datenbank
+
+01.05.2020
+- Wechsel von Login auf Register möglich.
+- Erstellung eines Users möglich
+- Anzeige des Usernames auf der Applikation.
