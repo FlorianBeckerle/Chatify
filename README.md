@@ -17,9 +17,6 @@ Die Nachrichten sowie Userdaten und Interaktionen-Logs werden alle in Datenbanke
 
 - Projekt noch in Bearbeitung 
 
- 
- 
-
 Fortschritt (Mit Fortschrittsliste abgeglichen)
 
 28.03.2020
@@ -38,5 +35,16 @@ Fortschritt (Mit Fortschrittsliste abgeglichen)
 - Wechsel von Login auf Register möglich.
 - Erstellung eines Users möglich
 - Anzeige des Usernames auf der Applikation.
+
+09.05.2020
+- Überprüfungung for Register erneuert
+- Überprüfungen für Login implementiert
+
+- Login ermöglichen
+- Login&Register Fenster schließen
+- Roter / Grüner Border bei Input Felder
+- AGB Check
+- Chat Eingabe
+
 
 Für nähere Details steht die Excel Datei "Fortschrittsliste" zur Verfügung.
