@@ -17,7 +17,8 @@ Die Nachrichten sowie Userdaten und Interaktionen-Logs werden alle in Datenbanke
 
 - Projekt noch in Bearbeitung 
 
-
+ 
+ 
 
 Fortschritt (Mit Fortschrittsliste abgeglichen)
 
@@ -37,3 +38,5 @@ Fortschritt (Mit Fortschrittsliste abgeglichen)
 - Wechsel von Login auf Register möglich.
 - Erstellung eines Users möglich
 - Anzeige des Usernames auf der Applikation.
+
+Für nähere Details steht die Excel Datei "Fortschrittsliste" zur Verfügung.
