@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatify.application.ApplicationC">
+   <children>
+      <Pane prefHeight="20.0" prefWidth="1300.0" styleClass="containerTop" stylesheets="@../components/ApplicationStyle.css">
+         <children>
+            <Label layoutY="4.0" text="WELCOME TO CHATIFY CHATSERVER!">
+               <font>
+                  <Font name="Segoe UI Black" size="8.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="20.0" prefHeight="50.0" prefWidth="1300.0" styleClass="containerTopHeadline" stylesheets="@../components/ApplicationStyle.css">
+         <children>
+            <Circle fill="WHITE" layoutX="1266.0" layoutY="25.0" radius="20.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+            <Label fx:id="usernameLabel" layoutX="1136.0" layoutY="12.0" text="USERNAME" textFill="WHITE">
+               <font>
+                  <Font name="Segoe UI Black Italic" size="18.0" />
+               </font>
+            </Label>
+            <Button layoutX="14.0" layoutY="13.0" mnemonicParsing="false" onAction="#changeText" text="Button" />
+         </children>
+      </Pane>
+      <Pane layoutY="70.0" prefHeight="830.0" prefWidth="200.0" styleClass="containerLeft" stylesheets="@../components/ApplicationStyle.css">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="200.0" styleClass="containerLeftHeadlineTop" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <Label layoutX="14.0" layoutY="15.0" text="USERS" textFill="#b5b5b5">
+                     <font>
+                        <Font name="Segoe UI Black" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutY="780.0" prefHeight="50.0" prefWidth="200.0" styleClass="containerLeftHeadlineBottom" stylesheets="@../components/ApplicationStyle.css" />
+         </children>
+      </Pane>
+      <Pane layoutX="200.0" layoutY="70.0" prefHeight="830.0" prefWidth="900.0" style="-fx-background-color: orange;">
+         <children>
+            <Pane prefHeight="780.0" prefWidth="900.0">
+               <children>
+                  <ListView fx:id="messageContainer" prefHeight="780.0" prefWidth="900.0" styleClass="containerList" stylesheets="@../components/ApplicationStyle.css" />
+               </children>
+            </Pane>
+            <Pane layoutY="780.0" prefHeight="50.0" prefWidth="900.0" styleClass="containerInput" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <TextField fx:id="sendMsgInput" alignment="TOP_LEFT" layoutX="14.0" layoutY="11.0" prefHeight="29.0" prefWidth="796.0" promptText="Deine Nachricht..." styleClass="inputMessageContainer" stylesheets="@../components/ApplicationStyle.css">
+                     <padding>
+                        <Insets top="12.0" />
+                     </padding>
+                     <font>
+                        <Font name="Segoe UI" size="12.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="sendMsgButton" layoutX="818.0" layoutY="13.0" mnemonicParsing="false" styleClass="inputMessageBtn" stylesheets="@../components/ApplicationStyle.css" text="SENDEN!">
+                     <font>
+                        <Font name="Segoe UI Black" size="12.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <Pane layoutX="1100.0" layoutY="70.0" prefHeight="830.0" prefWidth="200.0" styleClass="containerRight" stylesheets="@../components/ApplicationStyle.css">
+         <children>
+            <Pane prefHeight="50.0" prefWidth="200.0" styleClass="containerRightHeadlineTop" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <Label layoutX="14.0" layoutY="15.0" text="SERVERS" textFill="#b5b5b5">
+                     <font>
+                        <Font name="Segoe UI Black" size="14.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <Pane layoutY="780.0" prefHeight="50.0" prefWidth="200.0" styleClass="containerRightHeadlineBottom" stylesheets="@../components/ApplicationStyle.css" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
