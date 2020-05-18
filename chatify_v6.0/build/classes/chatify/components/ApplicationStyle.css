@@ -1,0 +1,106 @@
+.containerTop {
+    -fx-background-color: #f84752;
+}
+
+.containerTopHeadline {
+    -fx-background-color: #0c0c0c;
+}
+
+.containerLeft {
+    -fx-background-color: #d8d8d8;
+}
+
+.containerLeftHeadlineTop {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerLeftHeadlineBottom {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerRight {
+    -fx-background-color: #d8d8d8;
+}
+
+.containerRightHeadlineTop {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerRightHeadlineBottom {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerSettings {
+    -fx-background-color: #ffffff;
+}
+
+.containerList {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.containerInput {
+    -fx-background-color: #f2f2f2;
+}
+
+.inputMessageContainer {
+    -fx-background-color: #d8d8d8;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.inputMessageBtn {
+    -fx-background-color: #d8d8d8;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.listViewLeftRight {
+    -fx-background-color: #e5e5e5;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.listViewLeftRight .list-cell:even {
+    -fx-background-color: #e5e5e5;
+    -fx-text-fill: #000000;
+}
+.listViewLeftRight .list-cell:odd {
+    -fx-background-color: #e5e5e5;
+    -fx-text-fill: #000000;
+}
+
+.listViewLeftRight .list-cell:even:hover,
+.listViewLeftRight .list-cell:odd:hover {
+    -fx-background-color: #f84752;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+}
+
+.containerList .list-cell:even {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+.containerList .list-cell:odd {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+.buttonInvinsible {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
