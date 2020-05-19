@@ -8,8 +8,8 @@ Legende:
 [o] = WIP (Work in progress)
 
 *major:*
-- [ ] login/register fenster verschieben
-- [ ] applikation fenster verschieben
+- [x] ~~login/register fenster verschieben~~
+- [x] ~~applikation fenster verschieben~~
 - [ ] login/register fenster nach login/register schließen
 - [x] ~~application taskbar entfernen~~
 - [x] ~~applikation close / minimize button~~
