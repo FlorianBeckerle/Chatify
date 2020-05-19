@@ -10,7 +10,7 @@ Legende:
 *major:*
 - [x] ~~login/register fenster verschieben~~
 - [x] ~~applikation fenster verschieben~~
-- [ ] login/register fenster nach login/register schließen
+- [x] ~~login/register fenster nach login/register schließen~~
 - [x] ~~application taskbar entfernen~~
 - [x] ~~applikation close / minimize button~~
 - [x] ~~user settings und server settings nicht gleichzeit öffnen können~~
