@@ -9,13 +9,15 @@ Legende:
 
 *major:*
 - [ ] login/register fenster verschieben
+- [ ] applikation fenster verschieben
 - [ ] login/register fenster nach login/register schließen
-- [ ] application taskbar entfernen
+- [x] ~~application taskbar entfernen~~
+- [x] ~~applikation close / minimize button~~
 - [x] ~~user settings und server settings nicht gleichzeit öffnen können~~
 - [ ] server settings nach erstellen eines servers automatisch schließen
 - [ ] beim auswahl eines chatroom soll angezeigt werden in welchem man sich gerade befindet (actived)
 
-- [ ] einheitliche Datenbank
+- [x] ~~einheitliche Datenbank~~
 - [ ] einheitlicher pfad für background video beim register / login
 
 *minor:*
