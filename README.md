@@ -1,41 +1,41 @@
 # Chatify Chatserver
 
-FEATURE LIST (ONLY FOR DEVELOPERS)
+**FEATURE LIST (ONLY FOR DEVELOPERS)**
 
 Legende:
-"-" = not finished
-"+" = finined
-"~" = WIP
+[x] = finished
+[ ] = unfinished
+[o] = WIP (Work in progress)
 
-major:
-- login/register fenster verschieben
-- login/register fenster nach login/register schließen
-- application taskbar entfernen
-- user settings und server settings nicht gleichzeit öffnen können
-- server settings nach erstellen eines servers automatisch schließen
-- beim auswahl eines chatroom soll angezeigt werden in welchem man sich gerade befindet (actived)
+*major:*
+- [ ] login/register fenster verschieben
+- [ ] login/register fenster nach login/register schließen
+- [ ] application taskbar entfernen
+- [ ] user settings und server settings nicht gleichzeit öffnen können
+- [ ] server settings nach erstellen eines servers automatisch schließen
+- [ ] beim auswahl eines chatroom soll angezeigt werden in welchem man sich gerade befindet (actived)
 
-- einheitliche Datenbank
-- einheitlicher pfad für background video beim register / login
+- [ ] einheitliche Datenbank
+- [ ] einheitlicher pfad für background video beim register / login
 
-minor:
-- login button "log me in", pressed styling
-- register button "registrieren!", pressed styling
-- user icon
+*minor:*
+- [ ] login button "log me in", pressed styling
+- [ ] register button "registrieren!", pressed styling
+- [ ] user icon
 
-upcoming features:
-- tutorial
-- server löschen
-- username ändern
-- user passwort ändern
-- user email ändern
-- server settings für bereits existierende server
-- SOCKETS
+*upcoming features:*
+- [ ] tutorial
+- [ ] server löschen
+- [ ] username ändern
+- [ ] user passwort ändern
+- [ ] user email ändern
+- [ ] server settings für bereits existierende server
+- [ ] SOCKETS
 
-- background video bei der applikation
-- animations
+- [ ] background video bei der applikation
+- [ ] animations
 
-Beschreibung: Chatserver
+**Beschreibung: Chatserver**
 
 Team: Beckerle Florian,
 	John Lim
