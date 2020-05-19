@@ -11,7 +11,7 @@ Legende:
 - [ ] login/register fenster verschieben
 - [ ] login/register fenster nach login/register schließen
 - [ ] application taskbar entfernen
-- [ ] user settings und server settings nicht gleichzeit öffnen können
+- [x] ~~user settings und server settings nicht gleichzeit öffnen können~~
 - [ ] server settings nach erstellen eines servers automatisch schließen
 - [ ] beim auswahl eines chatroom soll angezeigt werden in welchem man sich gerade befindet (actived)
 
@@ -22,6 +22,7 @@ Legende:
 - [x] ~~login button "log me in", pressed styling~~
 - [x] ~~register button "registrieren!", pressed styling~~
 - [x] ~~application icon~~
+- [x] ~~login/register video erneuern~~
 
 *upcoming features:*
 - [ ] tutorial
