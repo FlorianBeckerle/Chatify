@@ -1,0 +1,95 @@
+.containerLeft {
+    -fx-background-color: #f84752;
+}
+
+.containerRight {
+    -fx-background-color: #ffffff;
+}
+
+.contentLogin {
+
+}
+
+.contentRegister {
+
+}
+
+.containerInputPane {
+    -fx-background-color: #f84752;
+}
+
+.containerInput {
+    -fx-background-color: #f2f2f2;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-border-color:  #f2f2f2;
+}
+
+.containerBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #f84752;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.containerBtn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+    -fx-text-fill: #ffffff;
+}
+
+.containerBtn:pressed {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+    -fx-text-fill: #000000;
+}
+
+.containerPasswordForgot:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: #00fa9a;
+}
+
+.containerRegister:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: #00fa9a;
+}
+
+.containerCloseBtn {
+    -fx-text-fill: #ff4500;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.containerCloseBtn:hover, .containerCloseBtnIcon:hover {
+    -fx-cursor: hand;
+}
+
+.containerMinimizeBtn {
+    -fx-text-fill: #f84752;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.containerMinimizeBtn:hover, .containerMinimizeBtnIcon:hover {
+    -fx-cursor: hand;
+}
+
+.containerBackBtn {
+    -fx-text-fill: #f84752;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.containerBackBtn:hover{
+    -fx-cursor: hand;
+}
+
+.check-box .box {
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}

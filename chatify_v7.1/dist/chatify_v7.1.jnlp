@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="chatify_v7.1.jnlp">
+  <information>
+    <title>chatify_v7.1</title>
+    <vendor>limjo</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="chatify_v7.1.jar" size="43604572" download="eager" />
+    <jar href="lib\derbyclient.jar" size="585704" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="chatify_v7.1" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="chatify.main.Main"  name="chatify_v7.1" />
+  <update check="always"/>
+</jnlp>
