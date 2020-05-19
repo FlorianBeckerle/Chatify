@@ -19,8 +19,8 @@ Legende:
 - [ ] einheitlicher pfad für background video beim register / login
 
 *minor:*
-- [x] login button "log me in", pressed styling
-- [x] register button "registrieren!", pressed styling
+- [x] ~~login button "log me in", pressed styling~~
+- [x] ~~register button "registrieren!", pressed styling~~
 - [ ] user icon
 
 *upcoming features:*
