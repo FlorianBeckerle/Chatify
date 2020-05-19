@@ -110,6 +110,7 @@ public class ApplicationC {
         setCurrentChatrooms(currentChatroom.getChatrooms(statement, username));
         
         chatroomsContainer.setItems(currentChatrooms);
+        currentChatrooms.add(new Chatroom("3", "3ter Server"));
         
         chatroomsContainer.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
