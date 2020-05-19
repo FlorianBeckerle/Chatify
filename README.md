@@ -21,7 +21,7 @@ Legende:
 *minor:*
 - [x] ~~login button "log me in", pressed styling~~
 - [x] ~~register button "registrieren!", pressed styling~~
-- [ ] user icon
+- [x] ~~application icon~~
 
 *upcoming features:*
 - [ ] tutorial
