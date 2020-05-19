@@ -7,6 +7,7 @@ Legende:
 [ ] = unfinished
 [o] = WIP (Work in progress)
 
+V7.1
 *major:*
 - [x] ~~login/register fenster verschieben~~
 - [x] ~~applikation fenster verschieben~~
