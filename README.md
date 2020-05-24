@@ -30,9 +30,9 @@ V7.1
 *upcoming features:*
 - [ ] tutorial
 - [ ] server löschen
-- [ ] username ändern
-- [ ] user passwort ändern
-- [ ] user email ändern
+- [x] ~~username ändern~~
+- [x] ~~user passwort ändern~~
+- [x] ~~user email ändern~~
 - [ ] server settings für bereits existierende server
 - [ ] SOCKETS
 
