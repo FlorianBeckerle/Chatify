@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="parent" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="1340.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="chatify.application.ApplicationC">
+   <children>
+      <Pane layoutX="40.0" prefHeight="900.0" prefWidth="1300.0">
+         <children>
+            <Pane prefHeight="20.0" prefWidth="1300.0" styleClass="containerTop" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <Button fx:id="closeWindowBtn" layoutX="1280.0" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#closeWindow" prefHeight="20.0" prefWidth="20.0" styleClass="toolbarBtn" text="✕">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="minimizeWindowBtn" layoutX="1260.0" maxHeight="20.0" maxWidth="20.0" minHeight="20.0" minWidth="20.0" mnemonicParsing="false" onAction="#minimizeWindow" prefHeight="20.0" prefWidth="20.0" styleClass="toolbarBtn" text="−">
+                     <font>
+                        <Font size="8.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="4.0" layoutY="4.0" text="CHATIFY V7.1">
+                     <font>
+                        <Font name="Segoe UI Black" size="8.0" />
+                     </font>
+                  </Label>
+               </children></Pane>
+            <Pane layoutY="20.0" prefHeight="50.0" prefWidth="1300.0" styleClass="containerTopHeadline" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <Circle fill="WHITE" layoutX="1222.0" layoutY="26.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                  <Label fx:id="usernameLabel" alignment="CENTER_RIGHT" layoutX="861.0" layoutY="13.0" prefHeight="27.0" prefWidth="345.0" text="USERNAME" textFill="WHITE">
+                     <font>
+                        <Font name="Segoe UI Black Italic" size="16.0" />
+                     </font>
+                     <padding>
+                        <Insets right="10.0" />
+                     </padding>
+                  </Label>
+                  <Label layoutX="1249.0" layoutY="9.0" text="Du bist" textFill="#545454">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="1247.0" layoutY="24.0" text=" Online" textFill="MEDIUMSPRINGGREEN">
+                     <font>
+                        <Font size="10.0" />
+                     </font>
+                  </Label>
+                  <VBox layoutX="530.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" styleClass="headerNavBox" />
+                  <VBox layoutX="580.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" styleClass="headerNavBox" />
+                  <VBox layoutX="630.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" styleClass="headerNavBox" />
+                  <VBox layoutX="680.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" styleClass="headerNavBox" />
+                  <VBox layoutX="730.0" layoutY="10.0" prefHeight="40.0" prefWidth="40.0" styleClass="headerNavBox" />
+                  <Button layoutY="10.0" maxHeight="30.0" maxWidth="60.0" minHeight="30.0" minWidth="60.0" mnemonicParsing="false" onAction="#openNews" prefHeight="30.0" prefWidth="60.0" styleClass="newsOpenBtn" stylesheets="@../components/ApplicationStyle.css" text="NEWS!">
+                     <font>
+                        <Font name="Segoe UI Black" size="11.0" />
+                     </font>
+                  </Button>
+               </children>
+            </Pane>
+            <Pane layoutY="70.0" prefHeight="830.0" prefWidth="200.0" styleClass="containerLeft" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="200.0" styleClass="containerLeftHeadlineTop" stylesheets="@../components/ApplicationStyle.css">
+                     <children>
+                        <Label layoutX="14.0" layoutY="15.0" text="USERS" textFill="#b5b5b5">
+                           <font>
+                              <Font name="Segoe UI Black" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <ListView fx:id="userContainer" layoutY="150.0" prefHeight="630.0" prefWidth="200.0" styleClass="listViewLeftRight" stylesheets="@../components/ApplicationStyle.css" />
+                  <Pane layoutY="780.0" prefHeight="50.0" prefWidth="200.0" styleClass="containerLeftHeadlineBottom" stylesheets="@../components/ApplicationStyle.css" />
+                  <VBox alignment="CENTER" layoutY="50.0" maxHeight="100.0" maxWidth="200.0" minHeight="100.0" minWidth="200.0" prefHeight="100.0" prefWidth="200.0" styleClass="userContainer">
+                     <children>
+                        <TextField maxHeight="30.0" maxWidth="170.0" minHeight="30.0" minWidth="170.0" prefHeight="30.0" prefWidth="170.0" promptText="USER SUCHE" styleClass="userSearchInput">
+                           <font>
+                              <Font name="Segoe UI Black" size="11.0" />
+                           </font>
+                        </TextField>
+                        <Button maxHeight="30.0" maxWidth="170.0" minHeight="30.0" minWidth="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" styleClass="userJoinBtn" text="USER HINZUFÜGEN">
+                           <font>
+                              <Font name="Segoe UI Black" size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane layoutX="200.0" layoutY="70.0" prefHeight="830.0" prefWidth="900.0">
+               <children>
+                  <Pane prefHeight="780.0" prefWidth="900.0">
+                     <children>
+                        <ListView fx:id="messageContainer" layoutX="10.0" layoutY="14.0" maxHeight="760.0" maxWidth="880.0" minHeight="760.0" minWidth="880.0" prefHeight="760.0" prefWidth="880.0" styleClass="containerList" stylesheets="@../components/ApplicationStyle.css" />
+                     </children>
+                  </Pane>
+                  <Pane layoutY="780.0" prefHeight="50.0" prefWidth="900.0" styleClass="containerInput" stylesheets="@../components/ApplicationStyle.css">
+                     <children>
+                        <TextField fx:id="sendMsgInput" layoutX="14.0" layoutY="11.0" prefHeight="30.0" prefWidth="717.0" promptText="Deine Nachricht..." styleClass="inputMessageContainer" stylesheets="@../components/ApplicationStyle.css">
+                           <font>
+                              <Font name="Segoe UI" size="12.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="sendMsgButton" layoutX="820.0" layoutY="10.0" maxHeight="30.0" minHeight="30.0" mnemonicParsing="false" onAction="#sendMessage" prefHeight="30.0" prefWidth="70.0" styleClass="inputMessageBtn" stylesheets="@../components/ApplicationStyle.css" text="SENDEN">
+                           <font>
+                              <Font name="Segoe UI Bold" size="10.0" />
+                           </font>
+                        </Button>
+                        <Button layoutX="780.0" layoutY="10.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#openMediaMenu" prefHeight="30.0" prefWidth="30.0" styleClass="inputMessageBtn" stylesheets="@../components/ApplicationStyle.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="extraBtn">
+                                 <image>
+                                    <Image url="@../components/icons/iconMedia.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                        <Button layoutX="740.0" layoutY="10.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" styleClass="inputMessageBtn" stylesheets="@../components/ApplicationStyle.css">
+                           <graphic>
+                              <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true" styleClass="extraBtn">
+                                 <image>
+                                    <Image url="@../components/icons/iconEmoji.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </Button>
+                     </children>
+                  </Pane>
+                  <VBox fx:id="mediaMenu" layoutX="240.0" layoutY="300.0" maxHeight="180.0" maxWidth="430.0" minHeight="180.0" minWidth="430.0" prefHeight="180.0" prefWidth="430.0" styleClass="mediaMenu" stylesheets="@../components/ApplicationStyle.css" visible="false">
+                     <children>
+                        <Pane maxHeight="30.0" maxWidth="430.0" minHeight="30.0" minWidth="430.0" prefHeight="30.0" prefWidth="430.0" styleClass="mediaMenuHeader">
+                           <children>
+                              <Button fx:id="closeMediaMenu" layoutX="400.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#closeMediaMenu" prefHeight="30.0" prefWidth="30.0" styleClass="mediaCloseBtn" text="✕" />
+                           </children>
+                        </Pane>
+                        <HBox maxHeight="150.0" maxWidth="430.0" minHeight="150.0" minWidth="430.0" prefHeight="150.0" prefWidth="430.0">
+                           <children>
+                              <Pane maxHeight="150.0" maxWidth="140.0" minHeight="150.0" minWidth="140.0" prefHeight="150.0" prefWidth="140.0">
+                                 <children>
+                                    <Pane layoutX="10.0" layoutY="10.0" maxHeight="130.0" maxWidth="130.0" minHeight="130.0" minWidth="130.0" prefHeight="130.0" prefWidth="130.0" styleClass="mediaMenuPanel" stylesheets="@../components/ApplicationStyle.css">
+                                       <children>
+                                          <Pane layoutX="15.0" layoutY="15.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" styleClass="mediaMenuPanelBorder" stylesheets="@../components/ApplicationStyle.css">
+                                             <children>
+                                                <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../components/icons/iconMediaGIF.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                              <Pane maxHeight="150.0" maxWidth="150.0" minHeight="150.0" minWidth="150.0" prefHeight="150.0" prefWidth="150.0">
+                                 <children>
+                                    <Pane layoutX="10.0" layoutY="10.0" maxHeight="130.0" maxWidth="130.0" minHeight="130.0" minWidth="130.0" prefHeight="130.0" prefWidth="130.0" styleClass="mediaMenuPanel" stylesheets="@../components/ApplicationStyle.css">
+                                       <children>
+                                          <Pane layoutX="15.0" layoutY="15.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" styleClass="mediaMenuPanelBorder">
+                                             <children>
+                                                <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../components/icons/iconMediaImage.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                              <Pane maxHeight="150.0" maxWidth="140.0" minHeight="150.0" minWidth="140.0" prefHeight="150.0" prefWidth="140.0">
+                                 <children>
+                                    <Pane layoutY="10.0" maxHeight="130.0" maxWidth="130.0" minHeight="130.0" minWidth="130.0" prefHeight="130.0" prefWidth="130.0" styleClass="mediaMenuPanel" stylesheets="@../components/ApplicationStyle.css">
+                                       <children>
+                                          <Pane layoutX="15.0" layoutY="15.0" maxHeight="100.0" maxWidth="100.0" minHeight="100.0" minWidth="100.0" prefHeight="100.0" prefWidth="100.0" styleClass="mediaMenuPanelBorder">
+                                             <children>
+                                                <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="20.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@../components/icons/iconMediaVideo.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <Pane layoutX="1100.0" layoutY="70.0" prefHeight="830.0" prefWidth="200.0" styleClass="containerRight" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="200.0" styleClass="containerRightHeadlineTop" stylesheets="@../components/ApplicationStyle.css">
+                     <children>
+                        <Label layoutX="14.0" layoutY="15.0" text="SERVERS" textFill="#b5b5b5">
+                           <font>
+                              <Font name="Segoe UI Black" size="14.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </Pane>
+                  <ListView fx:id="chatroomsContainer" layoutY="200.0" prefHeight="580.0" prefWidth="200.0" styleClass="listViewLeftRight" />
+                  <Pane layoutY="780.0" prefHeight="50.0" prefWidth="200.0" styleClass="containerRightHeadlineBottom" stylesheets="@../components/ApplicationStyle.css" />
+                  <VBox alignment="CENTER" layoutY="50.0" maxHeight="150.0" maxWidth="200.0" minHeight="150.0" minWidth="200.0" prefHeight="150.0" prefWidth="200.0" styleClass="serverContainer">
+                     <children>
+                        <TextField maxHeight="30.0" maxWidth="170.0" minHeight="30.0" minWidth="170.0" prefHeight="30.0" prefWidth="170.0" promptText="SERVER SUCHE" styleClass="serverSearchInput">
+                           <font>
+                              <Font name="Segoe UI Black" size="11.0" />
+                           </font>
+                        </TextField>
+                        <TextField maxHeight="30.0" maxWidth="170.0" minHeight="30.0" minWidth="170.0" prefHeight="30.0" prefWidth="170.0" promptText="SERVERNAME" styleClass="serverSearchInput">
+                           <font>
+                              <Font name="Segoe UI Black" size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </TextField>
+                        <Button maxHeight="30.0" maxWidth="170.0" minHeight="30.0" minWidth="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" styleClass="serverJoinBtn" text="SERVER BEITRETEN">
+                           <font>
+                              <Font name="Segoe UI Black" size="11.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </Pane>
+            <VBox fx:id="serverSettings" alignment="CENTER" maxHeight="900.0" maxWidth="1300.0" minHeight="900.0" minWidth="1300.0" prefHeight="900.0" prefWidth="1300.0" styleClass="serverBackground" stylesheets="@../components/ApplicationServerStyle.css" visible="false">
+               <children>
+                  <VBox maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0">
+                     <children>
+                        <Pane maxHeight="130.0" maxWidth="700.0" minHeight="130.0" minWidth="700.0" prefHeight="130.0" prefWidth="700.0" styleClass="serverContainerTop" stylesheets="@../components/ApplicationServerStyle.css">
+                           <children>
+                              <Circle fill="WHITE" layoutX="65.0" layoutY="65.0" radius="35.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                              <Label layoutX="100.0" layoutY="46.0" text="SERVERNAME" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Black Italic" size="26.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Button layoutX="656.0" layoutY="15.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#closeServerSettings" prefHeight="30.0" prefWidth="30.0" styleClass="serverCloseBtn" stylesheets="@../components/ApplicationServerStyle.css" text="✕" textAlignment="CENTER">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Pane layoutX="671.0" maxHeight="130.0" maxWidth="30.0" minHeight="130.0" minWidth="30.0" prefHeight="130.0" prefWidth="30.0" stylesheets="@../components/ApplicationServerStyle.css" />
+                           </children>
+                        </Pane>
+                        <HBox maxHeight="370.0" maxWidth="700.0" minHeight="370.0" minWidth="700.0" prefHeight="370.0" prefWidth="700.0">
+                           <children>
+                              <Pane maxHeight="370.0" maxWidth="200.0" minHeight="370.0" minWidth="200.0" prefHeight="370.0" prefWidth="200.0" styleClass="serverContainerLeft" stylesheets="@../components/ApplicationServerStyle.css">
+                                 <children>
+                                    <Button layoutX="15.0" layoutY="15.0" maxHeight="30.0" maxWidth="170.0" minHeight="30.0" minWidth="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" styleClass="serverOptionBtn" stylesheets="@../components/ApplicationServerStyle.css" text="EINSTELLUNGEN">
+                                       <font>
+                                          <Font name="Segoe UI Black Italic" size="11.0" />
+                                       </font>
+                                    </Button>
+                                    <Button layoutX="15.0" layoutY="60.0" maxHeight="30.0" maxWidth="170.0" minHeight="30.0" minWidth="170.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="170.0" styleClass="serverOptionBtn" stylesheets="@../components/ApplicationServerStyle.css" text="RECHTE">
+                                       <font>
+                                          <Font name="Segoe UI Black Italic" size="11.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </Pane>
+                              <VBox alignment="CENTER" maxHeight="370.0" maxWidth="500.0" minHeight="370.0" minWidth="500.0" prefHeight="370.0" prefWidth="500.0" styleClass="serverContainerRight" stylesheets="@../components/ApplicationServerStyle.css">
+                                 <children>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Server Name:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfCreateServerName" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="serverInput" stylesheets="@../components/ApplicationServerStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="240.0" maxWidth="2.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="200.0" styleClass="serverInputLine" stylesheets="@../components/ApplicationServerStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label layoutY="6.0" text="Für einen privaten Server kann ein Passwort setzen" />
+                                       </children>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Server Passwort:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfCreateServerPwd" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="serverInput" stylesheets="@../components/ApplicationServerStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="240.0" maxWidth="2.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="200.0" styleClass="serverInputLine" stylesheets="@../components/ApplicationServerStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Server Passwort wiederholen:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfCreateServerPwdRe" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="serverInput" stylesheets="@../components/ApplicationServerStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="240.0" maxWidth="2.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="200.0" styleClass="serverInputLine" stylesheets="@../components/ApplicationServerStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Benutzer Anzahl:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfCreateServerUserCount" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="serverInput" stylesheets="@../components/ApplicationServerStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="240.0" maxWidth="2.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="200.0" styleClass="serverInputLine" stylesheets="@../components/ApplicationServerStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label layoutY="8.0" text="Hinweis: Für unbegrenzte Anzahl an Benutzer, einfach Feld leer lassen" />
+                                       </children>
+                                    </Pane>
+                                    <Button maxHeight="50.0" maxWidth="450.0" minHeight="50.0" minWidth="450.0" mnemonicParsing="false" onAction="#createNewChatroom" prefHeight="50.0" prefWidth="450.0" styleClass="serverCreateBtn" stylesheets="@../components/ApplicationServerStyle.css" text="ERSTELLEN">
+                                       <font>
+                                          <Font name="Segoe UI Black Italic" size="20.0" />
+                                       </font>
+                                    </Button>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox fx:id="userSettings" alignment="CENTER" maxHeight="900.0" maxWidth="1300.0" minHeight="900.0" minWidth="1300.0" prefHeight="900.0" prefWidth="1300.0" styleClass="userBackground" stylesheets="@../components/ApplicationUserStyle.css" visible="false">
+               <children>
+                  <VBox maxHeight="500.0" maxWidth="700.0" minHeight="500.0" minWidth="700.0" prefHeight="500.0" prefWidth="700.0">
+                     <children>
+                        <Pane maxHeight="30.0" maxWidth="700.0" minHeight="30.0" minWidth="700.0" prefHeight="30.0" prefWidth="700.0" styleClass="userContainerTop" stylesheets="@../components/ApplicationUserStyle.css">
+                           <children>
+                              <Button layoutX="670.0" maxHeight="30.0" maxWidth="30.0" minHeight="30.0" minWidth="30.0" mnemonicParsing="false" onAction="#closeUserSettings" prefHeight="30.0" prefWidth="30.0" styleClass="userCloseBtn" stylesheets="@../components/ApplicationUserStyle.css" text="✕">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Button>
+                              <Label layoutX="7.0" layoutY="7.0" text="User ändern sich...">
+                                 <font>
+                                    <Font size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <HBox maxHeight="470.0" maxWidth="700.0" minHeight="470.0" minWidth="700.0" prefHeight="470.0" prefWidth="700.0">
+                           <children>
+                              <VBox alignment="CENTER" maxHeight="470.0" maxWidth="200.0" minHeight="470.0" minWidth="200.0" prefHeight="470.0" prefWidth="200.0" styleClass="userContainerLeft" stylesheets="@../components/ApplicationUserStyle.css">
+                                 <children>
+                                    <Circle fill="WHITE" radius="40.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" />
+                                    <Label fx:id="usernameLabel1" text="USERNAME" textFill="WHITE">
+                                       <font>
+                                          <Font name="Segoe UI Black Italic" size="20.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets top="10.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label text="EINSTELLUNGEN">
+                                       <font>
+                                          <Font name="Segoe UI Black Italic" size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Erstelldatum">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="13.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets top="30.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label text="DD.MM.YYYY" />
+                                    <Label text="Freunde">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="13.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets top="20.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label text="0" />
+                                    <Label text="Server">
+                                       <font>
+                                          <Font name="Segoe UI Bold" size="13.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets top="20.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label text="0" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" maxHeight="470.0" maxWidth="500.0" minHeight="470.0" minWidth="500.0" prefHeight="470.0" prefWidth="500.0" styleClass="userContainerRight" stylesheets="@../components/ApplicationUserStyle.css">
+                                 <children>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Benutzername ändern:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfUsernameNew" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="userInput" stylesheets="@../components/ApplicationUserStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="2.0" maxWidth="240.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="240.0" styleClass="userInputLine" stylesheets="@../components/ApplicationUserStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Button fx:id="btChangeUsername" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" mnemonicParsing="false" onAction="#changeUsername" prefHeight="30.0" prefWidth="240.0" styleClass="userConfirmBtn" stylesheets="@../components/ApplicationUserStyle.css" text="NAME ÄNDERN">
+                                             <font>
+                                                <Font name="Segoe UI Black Italic" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Passwort">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Aktuelles Passwort:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfCurrentPasswort" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="userInput" stylesheets="@../components/ApplicationUserStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="2.0" maxWidth="240.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="240.0" styleClass="userInputLine" stylesheets="@../components/ApplicationUserStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Neues Passwort:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfPasswortNew" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="userInput" stylesheets="@../components/ApplicationUserStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="2.0" maxWidth="240.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="240.0" styleClass="userInputLine" stylesheets="@../components/ApplicationUserStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="Neues Passwort wiederholen:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfPasswortNewRe" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="userInput" stylesheets="@../components/ApplicationUserStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="2.0" maxWidth="240.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="240.0" styleClass="userInputLine" stylesheets="@../components/ApplicationUserStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Button fx:id="btChangePasswort" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" mnemonicParsing="false" onAction="#changePasswort" prefHeight="30.0" prefWidth="240.0" styleClass="userConfirmBtn" stylesheets="@../components/ApplicationUserStyle.css" text="PASSWORT ÄNDERN">
+                                             <font>
+                                                <Font name="Segoe UI Black Italic" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="20.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Label layoutY="5.0" text="E-Mail Adresse ändern:">
+                                             <font>
+                                                <Font name="Segoe UI Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="tfEmailNew" layoutX="210.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" prefHeight="30.0" prefWidth="240.0" styleClass="userInput" stylesheets="@../components/ApplicationUserStyle.css" />
+                                          <Pane layoutX="210.0" layoutY="30.0" maxHeight="2.0" maxWidth="240.0" minHeight="2.0" minWidth="240.0" prefHeight="2.0" prefWidth="240.0" styleClass="userInputLine" stylesheets="@../components/ApplicationUserStyle.css" />
+                                       </children>
+                                       <VBox.margin>
+                                          <Insets bottom="10.0" />
+                                       </VBox.margin>
+                                    </Pane>
+                                    <Pane maxHeight="30.0" maxWidth="450.0" minHeight="30.0" minWidth="450.0" prefHeight="30.0" prefWidth="450.0">
+                                       <children>
+                                          <Button fx:id="btChangeEmail" layoutX="210.0" layoutY="1.0" maxHeight="30.0" maxWidth="240.0" minHeight="30.0" minWidth="240.0" mnemonicParsing="false" onAction="#changeEmail" prefHeight="30.0" prefWidth="240.0" styleClass="userConfirmBtn" stylesheets="@../components/ApplicationUserStyle.css" text="E-MAIL ÄNDERN">
+                                             <font>
+                                                <Font name="Segoe UI Black Italic" size="11.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <HBox fx:id="news" alignment="CENTER" maxHeight="900.0" maxWidth="1300.0" minHeight="900.0" minWidth="1300.0" prefHeight="900.0" prefWidth="1300.0" styleClass="newsTransparentBackground" stylesheets="@../components/ApplicationStyle.css">
+               <children>
+                  <VBox alignment="CENTER" maxHeight="700.0" maxWidth="900.0" minHeight="700.0" minWidth="900.0" prefHeight="700.0" prefWidth="900.0" styleClass="newsBackgroundPanel" stylesheets="@../components/ApplicationStyle.css">
+                     <children>
+                        <Pane maxHeight="75.0" maxWidth="860.0" minHeight="75.0" minWidth="860.0" prefHeight="75.0" prefWidth="860.0">
+                           <children>
+                              <Label layoutY="-8.0" text="CHATIFY! CHATSERVER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Segoe UI Black Italic" size="35.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutY="32.0" text="NEWS!" textFill="MEDIUMSPRINGGREEN">
+                                 <font>
+                                    <Font name="Segoe UI Black" size="35.0" />
+                                 </font>
+                              </Label>
+                              <Button layoutX="760.0" layoutY="-23.0" maxHeight="30.0" maxWidth="100.0" minHeight="30.0" minWidth="100.0" mnemonicParsing="false" onAction="#closeNews" prefHeight="30.0" prefWidth="100.0" styleClass="newsCloseBth" stylesheets="@../components/ApplicationStyle.css" text="System.exit(1);" />
+                              <Label layoutX="404.0" layoutY="2.0" text="Beckerle Florian">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                              <Label layoutX="404.0" layoutY="18.0" text="John Lim">
+                                 <padding>
+                                    <Insets left="10.0" />
+                                 </padding>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane maxHeight="565.0" maxWidth="860.0" minHeight="565.0" minWidth="860.0" prefHeight="565.0" prefWidth="860.0" styleClass="newsBackgroundScrollPanel" stylesheets="@../components/ApplicationStyle.css">
+                           <VBox.margin>
+                              <Insets top="15.0" />
+                           </VBox.margin>
+                           <children>
+                              <Pane layoutX="10.0" layoutY="10.0" maxHeight="545.0" maxWidth="840.0" minHeight="545.0" minWidth="840.0" prefHeight="545.0" prefWidth="840.0" styleClass="newsBackgroundSection">
+                                 <children>
+                                    <Label layoutX="14.0" layoutY="14.0" text="VERSION 8.1 IST ONLINE!" textFill="MEDIUMSPRINGGREEN">
+                                       <font>
+                                          <Font name="Segoe UI Black" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="28.0" layoutY="34.0" text="NEUE FEATURES:" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="51.0" text="+ Benutzerdaten können geändert werden" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="68.0" text="+ Benutzername wird angezeigt" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="85.0" text="+ Benutzerdaten überprüfungen bei Änderung der Daten" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="102.0" text="+ Benutzer werden in Chatrooms angezeigt" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="136.0" text="DESIGN" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="153.0" text="+ Neues Video beim Login und Register" textFill="WHITE" />
+                                    <Label layoutX="25.0" layoutY="170.0" text="+ Usersuche" textFill="WHITE" />
+                                    <Label layoutX="25.0" layoutY="187.0" text="+ User adden " textFill="WHITE" />
+                                    <Label layoutX="25.0" layoutY="204.0" text="+ Serversuche" textFill="WHITE" />
+                                    <Label layoutX="25.0" layoutY="221.0" text="+ Server beitritt" textFill="WHITE" />
+                                    <Label layoutX="25.0" layoutY="238.0" text="+ NEWS Screen" textFill="WHITE" />
+                                    <Label layoutX="25.0" layoutY="255.0" text="+ Home Button" textFill="WHITE" />
+                                    <Label layoutX="14.0" layoutY="292.0" text="VERSION 7.1 IST ONLINE!" textFill="WHITE">
+                                       <font>
+                                          <Font name="Segoe UI Black" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label layoutX="28.0" layoutY="312.0" text="NEUE FEATURES:" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="329.0" text="+ Benutzer Settings Menu" textFill="WHITE" />
+                                    <Label layoutX="28.0" layoutY="346.0" text="+ Server Settings Menu" textFill="WHITE" />
+                                 </children>
+                              </Pane>
+                           </children>
+                        </Pane>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </Pane>
+      <Pane prefHeight="900.0" prefWidth="40.0" styleClass="containerSettings" stylesheets="@../components/ApplicationStyle.css">
+         <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutY="850.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#openUserSettings" prefHeight="40.0" prefWidth="40.0" styleClass="buttonInvinsible" stylesheets="@../components/ApplicationStyle.css" textAlignment="CENTER">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" styleClass="optionBtn">
+                     <image>
+                        <Image url="@../components/icons/iconGear.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button alignment="CENTER" contentDisplay="CENTER" graphicTextGap="0.0" layoutY="810.0" maxHeight="40.0" maxWidth="40.0" minHeight="40.0" minWidth="40.0" mnemonicParsing="false" onAction="#openServerSettings" prefHeight="40.0" prefWidth="40.0" styleClass="buttonInvinsible" stylesheets="@../components/ApplicationStyle.css" textAlignment="CENTER">
+               <font>
+                  <Font size="1.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="23.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" styleClass="optionBtn">
+                     <image>
+                        <Image url="@../components/icons/iconPlus.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
