@@ -123,3 +123,13 @@ alter table chatroom add column password varchar(50);
 insert into CHATROOM(CHATROOMID, CREATEDAT, NAME, PASSWORD) values(next value for seq_chatroom, CURRENT_DATE, 'Implodium', 'implodium01');
 
 UPDATE benutzer set username='Xodeen' where username='X0DEEN';
+
+select * from chatparticipants;
+
+
+select * from chatroom join chatparticipants on(chatroomid= chatroom_chatroomid) join benutzer on (userid = user_userid) having username='X0DEEN';
+
+select cr.* from chatroom cr, chatparticipants crp, benutzer b where cr.CHATROOMID = crp.CHATROOM_CHATROOMID and crp.USER_USERID = b.USERID and b.USERNAME = 'X0DEEN' order by cr.name;
+
+
+delete from chatroom where chatroomid = 5;

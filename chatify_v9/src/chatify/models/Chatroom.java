@@ -49,7 +49,7 @@ public class Chatroom {
     
     public ObservableList<Chatroom> getChatrooms(Statement statement, String username) {
         try {
-            String sql = "select * from chatroom"; //Einschränkung fehlt nocht
+            String sql = "select cr.* from chatroom cr, chatparticipants crp, benutzer b where cr.CHATROOMID = crp.CHATROOM_CHATROOMID and crp.USER_USERID = b.USERID and b.USERNAME = '"+username+"' order by cr.name"; //Einschränkung fehlt nocht
             ResultSet rs = statement.executeQuery(sql);
             ObservableList<Chatroom> chatrooms = FXCollections.observableArrayList();
             while (rs.next()) {
@@ -63,13 +63,17 @@ public class Chatroom {
         }
     }
     
-    public Chatroom createNewChatroom(String name, String password, Statement statement){
+    public Chatroom createNewChatroom(String name, String password, Statement statement) throws Exception{
         try {
+            if(password == null || "".equals(password)){
+                password = "empty";
+            }
+            
             //Checken ob der ChatroomName schon vergeben ist
             String sqlQName = "select name from chatroom where name='"+name+"'";
             ResultSet rsName = statement.executeQuery(sqlQName);
             
-            if(!rsName.next()){
+            if(rsName.next()){
                 throw new Exception("Servername bereits vergeben.");
             }
             
@@ -92,9 +96,23 @@ public class Chatroom {
     }
     
     public String checkJoinInputs(String chatroomName, String chatroomPassword, Statement statement){
-        String sql = "";
-        
-        Resultset rs = statement.executeQuery(sql);
+        try {
+            if("".equals(chatroomPassword) || chatroomPassword == null){
+                chatroomPassword = "empty";
+            }
+            String sql = "select chatroomid from chatroom where name='"+chatroomName+"' and password='"+chatroomPassword+"'";
+            ResultSet rs = statement.executeQuery(sql);
+            
+            if(rs.next()){
+                return rs.getString("chatroomid");
+            }else{
+                return null;
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Chatroom.class.getName()).log(Level.SEVERE, null, ex);
+            return null;
+        }
     }
 
     @Override

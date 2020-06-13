@@ -211,7 +211,9 @@ public class ApplicationC implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 //System.out.println(""+ chatroomsContainer.getSelectionModel().getSelectedItem().getChatroomId());
-                removeUser(userContainer.getSelectionModel().getSelectedItem().getUserId(), currentChatroom.getChatroomId());
+                if(userContainer.getSelectionModel().getSelectedItem() != null){
+                    removeUser(userContainer.getSelectionModel().getSelectedItem().getUserId(), currentChatroom.getChatroomId());
+                }
             }
         });
         
@@ -229,7 +231,7 @@ public class ApplicationC implements Initializable {
         setCurrentMessages(currentMessage.getMessages(statement, chatroomId));
         messageContainer.setItems(currentMessages);
         
-        new ChatParticipant(chatroomId, current.getUserId(), statement);
+        
         setCurrentUserList(current.getUsers(statement, chatroomId));
         userContainer.setItems(currentUserList);
 
@@ -291,7 +293,18 @@ public class ApplicationC implements Initializable {
     //Neuem Server Beitreten, wenn alle Eingaben (Name/Passwort) stimmen
     @FXML
     public void joinServer(ActionEvent event){
-        currentChatroom.checkJoinInputs(tfInputServerName.getText(), tfInputServerPassword.getText());
+        //Response liefert NULL (Daten falsch eingegeben) oder die ChatroomId (Daten wahren richtig) zurück
+        String response = currentChatroom.checkJoinInputs(tfInputServerName.getText(), tfInputServerPassword.getText(), statement);
+        if(response != null){
+            new ChatParticipant(response, current.getUserId(), statement);
+            changeChatroom(response);
+            setCurrentChatrooms(currentChatroom.getChatrooms(statement, current.getName()));
+            chatroomsContainer.setItems(currentChatrooms);
+            
+        }else{
+            //Ins FXML einbauen
+            System.out.println("Kein Server mit diesen Daten gefunden");
+        }
     }
     
     
@@ -308,13 +321,18 @@ public class ApplicationC implements Initializable {
     //Neuen Chatroom erstellen
     @FXML
     public void createNewChatroom(ActionEvent event) {
-        /*
-        *
-        * Hie die Eingabeüberprüfung machen :)
-        *
-         */
-        currentChatrooms.add(currentChatroom.createNewChatroom(tfCreateServerName.getText(), tfCreateServerPwd.getText(), statement));
-        serverSettings.setVisible(false);
+        try {
+            /*
+            *
+            * Hier die Eingabeüberprüfung machen :)
+            *
+            */
+            currentChatrooms.add(currentChatroom.createNewChatroom(tfCreateServerName.getText(), tfCreateServerPwd.getText(), statement));
+            serverSettings.setVisible(false);
+        } catch (Exception ex) {
+            //Fehlermeldung das Name bereits vorhanden ist Anzeigen lassen.
+            Logger.getLogger(ApplicationC.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     // user settings öffnen
