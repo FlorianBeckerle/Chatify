@@ -1,0 +1,278 @@
+.containerTop {
+    -fx-background-color: #f84752;
+}
+
+.containerTopHeadline {
+    -fx-background-color: #0c0c0c;
+}
+
+.containerLeft {
+    -fx-background-color: #d8d8d8;
+}
+
+.containerLeftHeadlineTop {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerLeftHeadlineBottom {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerRight {
+    -fx-background-color: #d8d8d8;
+}
+
+.containerRightHeadlineTop {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerRightHeadlineBottom {
+    -fx-background-color: #f2f2f2;
+}
+
+.containerSettings {
+    -fx-background-color: #ffffff;
+}
+
+.containerList {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.containerInput {
+    -fx-background-color: #f2f2f2;
+}
+
+.inputMessageContainer {
+    -fx-background-color: #d8d8d8;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.inputMessageBtn {
+    -fx-background-color: #d8d8d8;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.inputMessageBtn:hover {
+    -fx-cursor: hand;
+}
+
+.listViewLeftRight {
+    -fx-background-color: #e5e5e5;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.listViewLeftRight .list-cell:even {
+    -fx-background-color: #e5e5e5;
+    -fx-text-fill: #000000;
+}
+.listViewLeftRight .list-cell:odd {
+    -fx-background-color: #e5e5e5;
+    -fx-text-fill: #000000;
+}
+
+.listViewLeftRight .list-cell:even:hover,
+.listViewLeftRight .list-cell:odd:hover {
+    -fx-background-color: #f84752;
+    -fx-text-fill: #ffffff;
+    -fx-cursor: hand;
+}
+
+.listViewLeftRight .list-cell:filled:selected:focused {
+    -fx-background-color: #00fa9a;
+    -fx-text-fill: white;
+}
+
+
+.containerList .list-cell:even {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+.containerList .list-cell:odd {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #000000;
+}
+
+
+
+
+
+
+
+
+
+.buttonInvinsible {
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.buttonInvinsible:hover {
+    -fx-cursor: hand;
+}
+
+.optionBtn:hover {
+    -fx-cursor: hand;
+}
+
+.toolbarBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: transparent;
+}
+
+.toolbarBtn:hover {
+    -fx-cursor: hand;
+    -fx-text-fill: #00fa9a;
+}
+
+.toolbarBtn:pressed {
+    -fx-text-fill: #000000;
+}
+
+
+.serverContainer {
+    -fx-background-color: #cccccc;
+}
+
+.serverJoinBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #f84752;
+}
+
+.serverJoinBtn:hover {
+    -fx-cursor: hand;
+}
+
+.serverJoinBtn:pressed {
+    -fx-text-fill: #000000;
+}
+
+.serverSearchInput {
+    -fx-text-fill: #000000;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.userContainer {
+    -fx-background-color: #cccccc;
+}
+
+.userJoinBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #00fa9a;
+}
+
+.userJoinBtn:hover {
+    -fx-cursor: hand;
+}
+
+.userJoinBtn:pressed {
+    -fx-text-fill: #000000;
+}
+
+.userSearchInput {
+    -fx-text-fill: #000000;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.headerNavBox {
+    -fx-background-color: #191919;
+}
+
+.newsBackgroundPanel {
+    -fx-background-color: #262626;
+}
+
+.newsBackgroundScrollPanel {
+    -fx-background-color: #191919;
+}
+
+.newsBackgroundSection {
+    -fx-background-color: #0c0c0c;
+}
+
+.newsTransparentBackground {
+    -fx-background-color: rgba(0,0,0,0.95);
+}
+
+.newsCloseBth {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #f84752;
+}
+
+.newsCloseBth:hover {
+    -fx-cursor: hand;
+}
+
+.newsCloseBth:pressed {
+    -fx-text-fill: #000000;
+}
+
+.newsOpenBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #00fa9a;
+}
+
+.newsOpenBtn:hover {
+    -fx-cursor: hand;
+}
+
+.newsOpenBtn:pressed {
+    -fx-text-fill: #000000;
+}
+
+.mediaMenu {
+    -fx-background-color: #f2f2f2;
+}
+
+.mediaMenuHeader {
+    -fx-background-color: #e5e5e5;
+}
+
+.mediaMenuPanel {
+    -fx-background-color: #d8d8d8;
+}
+
+.mediaMenuPanelBorder {
+    -fx-border-color: #b2b2b2;
+    -fx-border-width: 4px;
+    -fx-border-style: dashed;
+}
+
+.mediaCloseBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #f84752;
+}
+
+.mediaCloseBtn:hover {
+    -fx-cursor: hand;
+}
+
+.mediaCloseBtn:pressed {
+    -fx-text-fill: #000000;
+}
+
+
+.extraBtn:hover {
+    -fx-cursor: hand;
+}
