@@ -363,9 +363,11 @@ public class ApplicationC implements Initializable {
 
             new ChatParticipant(response, current.getUserId(), statement);
             changeChatroom(response);
+            
             setCurrentChatrooms(currentChatroom.getChatrooms(statement, current.getName()));
             chatroomsContainer.setItems(currentChatrooms);
-
+            timerRefresh(true);
+            
             tfInputServerName.setText("");
             tfInputServerPassword.setText("");
 
@@ -396,9 +398,15 @@ public class ApplicationC implements Initializable {
             * Hier die Eingabeüberprüfung machen :)
             *
              */
+            if (currentChatroom == null){
+               currentChatroom = new Chatroom(statement,"-1"); 
+            }
+            
             Chatroom tempChatroom = currentChatroom.createNewChatroom(tfCreateServerName.getText(), tfCreateServerPwd.getText(), tfCreateServerUserCount.getText(), statement);
             new ChatParticipant(tempChatroom.getChatroomId(), current.getUserId(), statement);
             currentChatrooms.add(tempChatroom);
+            changeChatroom(tempChatroom.getChatroomId());
+            timerRefresh(true);
 
             tfCreateServerName.setText("");
             tfCreateServerPwd.setText("");
