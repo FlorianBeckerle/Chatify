@@ -49,7 +49,7 @@ public class Chatroom {
     
     public ObservableList<Chatroom> getChatrooms(Statement statement, String username) {
         try {
-            String sql = "select cr.* from chatroom cr, chatparticipants crp, benutzer b where cr.CHATROOMID = crp.CHATROOM_CHATROOMID and crp.USER_USERID = b.USERID and b.USERNAME = '"+username+"' order by cr.name"; //Einschränkung fehlt nocht
+            String sql = "select cr.* from chatroom cr, chatparticipants crp, benutzer b where cr.CHATROOMID = crp.CHATROOM_CHATROOMID and crp.USER_USERID = b.USERID and b.USERNAME = '"+username+"' order by cr.name"; 
             ResultSet rs = statement.executeQuery(sql);
             ObservableList<Chatroom> chatrooms = FXCollections.observableArrayList();
             while (rs.next()) {
@@ -63,10 +63,14 @@ public class Chatroom {
         }
     }
     
-    public Chatroom createNewChatroom(String name, String password, Statement statement) throws Exception{
+    public Chatroom createNewChatroom(String name, String password, String maxUserCount, Statement statement) throws Exception{
         try {
             if(password == null || "".equals(password)){
                 password = "empty";
+            }
+            
+            if(maxUserCount == null || "".equals(maxUserCount)){
+                maxUserCount = "10000";
             }
             
             //Checken ob der ChatroomName schon vergeben ist
@@ -78,9 +82,10 @@ public class Chatroom {
             }
             
             
-            String sql = "insert into CHATROOM(CHATROOMID, CREATEDAT, NAME, password) values(next value for seq_chatroom, CURRENT_DATE, "
+            String sql = "insert into CHATROOM(CHATROOMID, CREATEDAT, NAME, password, maxUserCount) values(next value for seq_chatroom, CURRENT_DATE, "
                     + "'"+ name +"', "
-                    + "'"+ password +"')";
+                    + "'"+ password +"',"
+                    + ""+ maxUserCount +")";
             statement.executeUpdate(sql);
             System.out.println("Chatroom erstellt.");
             
@@ -95,23 +100,32 @@ public class Chatroom {
         }
     }
     
-    public String checkJoinInputs(String chatroomName, String chatroomPassword, Statement statement){
+    public String checkJoinInputs(String chatroomName, String chatroomPassword, String userId, Statement statement) throws Exception{
         try {
             if("".equals(chatroomPassword) || chatroomPassword == null){
                 chatroomPassword = "empty";
             }
             String sql = "select chatroomid from chatroom where name='"+chatroomName+"' and password='"+chatroomPassword+"'";
             ResultSet rs = statement.executeQuery(sql);
-            
             if(rs.next()){
-                return rs.getString("chatroomid");
-            }else{
-                return null;
+                String chatroomId = rs.getString("chatroomid");
+                sql = "select chatroom_chatroomid from chatparticipants where chatroom_chatroomid ="+ chatroomId + " and user_userid =" + userId;
+                rs = statement.executeQuery(sql);
+                 if(!rs.next()){
+                      sql = "select chatroomid from chatroom cr where maxUserCount > (select count(*) from chatparticipants cp where cr.chatroomid = cp.chatroom_chatroomid) and chatroomid = "+ chatroomId;
+                      rs = statement.executeQuery(sql);
+                      if(rs.next()){
+                           return rs.getString("chatroomid");
+                      }
+                      throw new Exception("Server bereits voll belegt!"); 
+                 }
+                 throw new Exception("Benutzer bereits beigetreten!"); 
             }
+            throw new Exception("Kein Server mit diesen Daten gefunden!");
             
         } catch (SQLException ex) {
             Logger.getLogger(Chatroom.class.getName()).log(Level.SEVERE, null, ex);
-            return null;
+            throw new Exception("SQL Fehler");
         }
     }
 

@@ -124,7 +124,7 @@ insert into CHATROOM(CHATROOMID, CREATEDAT, NAME, PASSWORD) values(next value fo
 
 UPDATE benutzer set username='Xodeen' where username='X0DEEN';
 
-select * from chatparticipants;
+select * from chatparticipants where chatroom_chatroomid = 13;
 
 
 select * from chatroom join chatparticipants on(chatroomid= chatroom_chatroomid) join benutzer on (userid = user_userid) having username='X0DEEN';
@@ -133,3 +133,18 @@ select cr.* from chatroom cr, chatparticipants crp, benutzer b where cr.CHATROOM
 
 
 delete from chatroom where chatroomid = 5;
+
+alter table chatroom add column maxUserCount decimal(20) default 10000;
+
+
+select count(*) as anzahl from chatparticipants where chatroom_chatroomid = 3 and user_userid = 1
+
+select chatroomid from chatroom cr where maxUserCount > (select count(*) from chatparticipants cp where cr.chatroomid = cp.chatroom_chatroomid) and chatroomid = 13
+
+
+select cp.chatroom_chatroomid, count(*) from chatparticipants cp, chatroom cr where cr.chatroomid = cp.chatroom_chatroomid and cp.chatroom_chatroomid =13 group by cp.chatroom_chatroomid  having count(*)< min(maxUserCount)
+
+select * from benutzer b, chatparticipants c where b.userid = c.user_userid and c.chatroom_chatroomid =1 order by b.username asc;
+
+
+select b.* from benutzer b, chatroom c, chatparticipants cp where b.userid = cp.user_userid and c.CHATROOMID = cp.CHATROOM_CHATROOMID and c.name like '22%' and c.CHATROOMID = 13

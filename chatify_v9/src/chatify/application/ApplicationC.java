@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Statement;
 import java.util.ResourceBundle;
+import java.util.Timer;
 import java.util.logging.*;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -88,7 +89,6 @@ public class ApplicationC implements Initializable {
     @FXML
     private Button btChangeEmail;
 
-
     // sonstiges
     private final static String VIEWNAME = "ApplicationV.fxml";
     private static Statement statement;
@@ -106,15 +106,15 @@ public class ApplicationC implements Initializable {
     // message
     private Message currentMessage;
     private ObservableList<Message> currentMessages;
-    
+
     // mediaMenu
     @FXML
     private Button closeMediaMenu;
-    
+
     // news
     @FXML
     private HBox news;
-    
+
     //Server beitreten
     @FXML
     private TextField tfInputServerName;
@@ -123,7 +123,16 @@ public class ApplicationC implements Initializable {
     @FXML
     private Button btJoinServer;
     
-    
+    //User Filtern
+    @FXML
+    private TextField tfInputUserSuche;
+    @FXML
+    private Button btUserSuche;
+
+    //Refresh Timer
+    Timer refreshTimer = new Timer();
+    Timer refreshTimer2 = new Timer();
+
     // stage dragable machen
     private double x = 0;
     private double y = 0;
@@ -182,10 +191,11 @@ public class ApplicationC implements Initializable {
     }
 
     private void init(Statement statement, String username) {
+
         setCurrent(new User());
         setCurrentChatroom(new Chatroom(statement, null));
         setCurrentMessage(new Message(null, null, null));
-        setCurrentUserList(current.getUsers(statement, null));
+        setCurrentUserList(current.getUsers(statement, "-1"));
         userContainer.setItems(currentUserList);
 
         current.getUser(statement, username);
@@ -201,46 +211,94 @@ public class ApplicationC implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 //System.out.println(""+ chatroomsContainer.getSelectionModel().getSelectedItem().getChatroomId());
-                changeChatroom(chatroomsContainer.getSelectionModel().getSelectedItem().getChatroomId());
+                if (chatroomsContainer.getSelectionModel().getSelectedItem() != null) {
+                    changeChatroom(chatroomsContainer.getSelectionModel().getSelectedItem().getChatroomId());
+                }
             }
         });
 
         //changeChatroom(currentChatrooms.get(0).getChatroomId());
-
         userContainer.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 //System.out.println(""+ chatroomsContainer.getSelectionModel().getSelectedItem().getChatroomId());
-                if(userContainer.getSelectionModel().getSelectedItem() != null){
+                if (userContainer.getSelectionModel().getSelectedItem() != null) {
                     removeUser(userContainer.getSelectionModel().getSelectedItem().getUserId(), currentChatroom.getChatroomId());
+                    setCurrentUserList(current.getUsers(statement, "-1"));
                 }
             }
         });
-        
+
+        refreshTimer.schedule(new chatifyTimerTask(this, false), 2000, 1000);
+        refreshTimer2.schedule(new chatifyTimerTask(this, true), 1000, 10000);
     }
-    
-    public void removeUser(String userId, String chatroomId){
+
+    public void removeUser(String userId, String chatroomId) {
         ChatParticipant cp = new ChatParticipant(chatroomId, userId, statement);
         cp.delete(statement);
-        setCurrentUserList(current.getUsers(statement, chatroomId));
-        userContainer.setItems(currentUserList);
+        currentUserList.clear();
+        //setCurrentUserList(current.getUsers(statement, chatroomId));
+        //userContainer.setItems(currentUserList);
     }
 
     public void changeChatroom(String chatroomId) {
         currentChatroom = new Chatroom(statement, chatroomId);
-        setCurrentMessages(currentMessage.getMessages(statement, chatroomId));
-        messageContainer.setItems(currentMessages);
-        
-        
-        setCurrentUserList(current.getUsers(statement, chatroomId));
-        userContainer.setItems(currentUserList);
+        //setCurrentMessages(currentMessage.getMessages(statement, chatroomId));
+        //messageContainer.setItems(currentMessages);
 
+        //setCurrentUserList(current.getUsers(statement, chatroomId));
+        //userContainer.setItems(currentUserList);
         //setCurrentUserList(current.getUsers(statement, chatroomId)); //Zeigt alle User innerhalb dieses Servers
         //userContainer.setItems(currentUserList);
         System.out.println("Aktuelle Chatroom-ID:" + currentChatroom.getChatroomId());
     }
-    
-    
+
+    //Aktualisiert Chatlisten, Nachrichtenverläufe, Teilnehmerlisten
+    public synchronized void timerRefresh(boolean all) {
+        
+            String filter = tfInputUserSuche.getText() + "%";
+            
+            //Chatroom Liste
+            if (all){
+                setCurrentChatrooms(currentChatroom.getChatrooms(statement, current.getName()));
+                chatroomsContainer.setItems(currentChatrooms);
+                boolean found = false;
+                if (currentChatrooms != null && currentChatroom != null) {
+                    for (int j = 0; j < currentChatrooms.size(); j++) {
+                        if (currentChatrooms.get(j).getChatroomId().equalsIgnoreCase(currentChatroom.getChatroomId())){
+                            chatroomsContainer.getSelectionModel().select(j);
+                            chatroomsContainer.getFocusModel().focus(j);
+                            found = true;
+                            j = currentChatrooms.size();
+                        }                   
+                    }
+                    System.out.println("Chatroom " + currentChatroom.getChatroomId()+ " gesetzt:" + found);
+                    if (!found){
+                           currentChatroom = null;
+                    }
+                }
+            }       
+            if (currentChatroom != null && currentChatroom.getChatroomId()!= null){
+                //neue Nachrichten anzeigen
+                setCurrentMessages(currentMessage.getMessages(statement, currentChatroom.getChatroomId()));
+            
+                //User Liste aktualisieren.
+                //userContainer.getItems().clear();
+                setCurrentUserList(current.getUsers(statement, currentChatroom.getChatroomId(), filter));
+
+                
+            } else {
+                //neue Nachrichten anzeigen
+                setCurrentMessages(currentMessage.getMessages(statement, "-1"));
+            
+                //User Liste aktualisieren.
+                setCurrentUserList(current.getUsers(statement, "-1"));
+            } 
+            messageContainer.setItems(currentMessages);
+            System.out.println("currentUserList:"+currentUserList.size());
+            userContainer.setItems(currentUserList);
+
+    }
 
     public User getCurrent() {
         return current;
@@ -255,6 +313,9 @@ public class ApplicationC implements Initializable {
     }
 
     public void setCurrentUserList(ObservableList<User> currentUserList) {
+        /*if (this.currentUserList != null) {
+            this.currentUserList.clear();
+        }*/
         this.currentUserList = currentUserList;
     }
 
@@ -292,22 +353,30 @@ public class ApplicationC implements Initializable {
 
     //Neuem Server Beitreten, wenn alle Eingaben (Name/Passwort) stimmen
     @FXML
-    public void joinServer(ActionEvent event){
-        //Response liefert NULL (Daten falsch eingegeben) oder die ChatroomId (Daten wahren richtig) zurück
-        String response = currentChatroom.checkJoinInputs(tfInputServerName.getText(), tfInputServerPassword.getText(), statement);
-        if(response != null){
+    public void joinServer(ActionEvent event) {
+        try {
+            //Response liefert NULL (Daten falsch eingegeben) oder die ChatroomId (Daten wahren richtig) zurück
+            if (currentChatroom == null){
+               currentChatroom = new Chatroom(statement,"-1"); 
+            }
+            String response = currentChatroom.checkJoinInputs(tfInputServerName.getText(), tfInputServerPassword.getText(), current.getUserId(), statement);
+
             new ChatParticipant(response, current.getUserId(), statement);
             changeChatroom(response);
             setCurrentChatrooms(currentChatroom.getChatrooms(statement, current.getName()));
             chatroomsContainer.setItems(currentChatrooms);
-            
-        }else{
-            //Ins FXML einbauen
-            System.out.println("Kein Server mit diesen Daten gefunden");
+
+            tfInputServerName.setText("");
+            tfInputServerPassword.setText("");
+
+        } catch (Exception ex) {
+            //Fehlermeldungen in FXML Einbauen
+            //
+            //_______________________________
+            System.out.println(ex.toString());
         }
     }
-    
-    
+
     //Neue Nachricht senden
     @FXML
     public void sendMessage(ActionEvent event) {
@@ -326,13 +395,27 @@ public class ApplicationC implements Initializable {
             *
             * Hier die Eingabeüberprüfung machen :)
             *
-            */
-            currentChatrooms.add(currentChatroom.createNewChatroom(tfCreateServerName.getText(), tfCreateServerPwd.getText(), statement));
+             */
+            Chatroom tempChatroom = currentChatroom.createNewChatroom(tfCreateServerName.getText(), tfCreateServerPwd.getText(), tfCreateServerUserCount.getText(), statement);
+            new ChatParticipant(tempChatroom.getChatroomId(), current.getUserId(), statement);
+            currentChatrooms.add(tempChatroom);
+
+            tfCreateServerName.setText("");
+            tfCreateServerPwd.setText("");
+            tfCreateServerPwdRe.setText("");
+            tfCreateServerUserCount.setText("");
+
             serverSettings.setVisible(false);
         } catch (Exception ex) {
             //Fehlermeldung das Name bereits vorhanden ist Anzeigen lassen.
             Logger.getLogger(ApplicationC.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    //User in Chatroom suchen
+    @FXML
+    private void clearFilter(ActionEvent event) {
+        tfInputUserSuche.setText("");
     }
 
     // user settings öffnen
@@ -368,6 +451,8 @@ public class ApplicationC implements Initializable {
     private void closeWindow(ActionEvent event) {
         Stage stage = (Stage) closeWindowBtn.getScene().getWindow();
         stage.close();
+        refreshTimer.cancel();
+        refreshTimer2.cancel();
     }
 
     // fenster verkleinern

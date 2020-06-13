@@ -135,7 +135,7 @@ public class LoginRegisterC implements Initializable {
             Scene scene = new Scene(root);                                                  // scene erstellen
             stage.initStyle(StageStyle.UNDECORATED);                                        // titel bar entfernen
             
-            stage.getIcons().add(new Image("file:///C:/Users/limjo/Desktop/chatify_v7.1/src/chatify/components/icons/applicationIcon.png"));
+            stage.getIcons().add(new Image("file:///Z:/githubRepos/Chatify/chatify_v9/src/chatify/components/icons/applicationIcon.png"));
             
             if (stage == null) {                                                            // stage verwenden oder neue erzeugen
                 stage = new Stage();

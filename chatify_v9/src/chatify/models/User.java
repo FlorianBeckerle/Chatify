@@ -94,14 +94,18 @@ public class User {
             Logger.getLogger(User.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
     public ObservableList<User> getUsers(Statement statement, String chatroomid) {
+        return getUsers(statement, chatroomid, "%");
+    }
+
+    public ObservableList<User> getUsers(Statement statement, String chatroomid, String userFilter) {
         try {
             String sql = "select * from benutzer b"; //Einschränkung fehlt nocht
             if (chatroomid != null) {
                 sql += ", chatparticipants c where b.userid = c.user_userid and c.chatroom_chatroomid =" + chatroomid;
             }
-            sql += " order by b.username asc";
+            sql += " and lower(b.username) like lower('"+userFilter+"') order by b.username asc";
             ResultSet rs = statement.executeQuery(sql);
             ObservableList<User> users = FXCollections.observableArrayList();
             while (rs.next()) {
