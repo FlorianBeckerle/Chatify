@@ -107,7 +107,7 @@ public class LoginRegisterC implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         makeDragable();
-        Media media = new Media("file:///C:/Users/limjo/Desktop/chatify_v9/src/chatify/components/background.mp4"); //Flo: file:///Z:/githubRepos/Chatify/chatify_v9/src/chatify/components/background.mp4  || JOHN: file:///C:/Users/limjo/Desktop/chatify_v6.1/src/chatify/components/background.mp4
+        Media media = new Media("file:///C:/Users/fb/Documents/GitHub/Chatify/chatify_v9.1/src/chatify/components/background.mp4"); //Flo: file:///Z:/githubRepos/Chatify/chatify_v9/src/chatify/components/background.mp4  || JOHN: file:///C:/Users/limjo/Desktop/chatify_v6.1/src/chatify/components/background.mp4
         MediaPlayer player = new MediaPlayer(media);
         backgroundVideo.setMediaPlayer(player);
         player.setVolume(0);
@@ -137,7 +137,7 @@ public class LoginRegisterC implements Initializable {
             Scene scene = new Scene(root);                                                  // scene erstellen
             stage.initStyle(StageStyle.UNDECORATED);                                        // titel bar entfernen
             
-            stage.getIcons().add(new Image("file:///C:/Users/limjo/Desktop/chatify_v9/src/chatify/components/icons/applicationIcon.png"));
+            stage.getIcons().add(new Image("file:///C:/Users/fb/Documents/GitHub/Chatify/chatify_v9.1/src/chatify/components/icons/applicationIcon.png"));
             
             if (stage == null) {                                                            // stage verwenden oder neue erzeugen
                 stage = new Stage();
