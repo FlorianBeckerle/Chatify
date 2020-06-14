@@ -1,0 +1,189 @@
+.serverBackground {
+    -fx-background-color: rgba(0,0,0,0.9);
+}
+
+.serverContainerTop {
+    -fx-background-color: #f84752;
+}
+
+.serverContainerLeft {
+    -fx-background-color: #0c0c0c;
+}
+
+.serverContainerRight {
+    -fx-background-color: #ffffff;
+}
+
+
+
+.serverOptionBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #f84752;
+}
+
+.serverInput {
+    -fx-text-fill: #000000;
+    -fx-background-color: #f2f2f2;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.serverInputLine {
+    -fx-background-color: #f84752;
+}
+
+.serverCreateBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #00fa9a;
+}
+
+.serverCreateBtn:pressed {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+    -fx-text-fill: #000000;
+}
+
+.serverCloseBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #f84752;
+}
+
+.serverCloseBtn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+}
+
+.serverCloseBtn:pressed {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+    -fx-text-fill: #000000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.containerTop {
+    -fx-background-color: #f84752;
+}
+
+.containerBottom {
+    -fx-background-color: #ffffff;
+}
+
+.containerLeft {
+    -fx-background-color: #0c0c0c;
+}
+
+.optionButtons {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #f84752;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.inputs {
+    -fx-background-color: #f2f2f2;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.inputsLine {
+    -fx-background-color: #f84752;
+}
+
+.createButton {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #00fa9a;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.createButton:hover {
+    -fx-cursor: hand;
+}
+
+.closeButton {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.closeButton:hover {
+    -fx-cursor: hand;
+}
+
+.backgroundBlack {
+    -fx-background-color: rgba(0,0,0,0.9);
+}
+
+
+
+
+
+
+
+
+
+.button {
+    -fx-cursor: hand;
+}
+
+
+
+.serverJoinPublicBackground {
+    -fx-background-color: rgba(0,0,0,0.9);
+}
+
+.serverJoinPublicContainer {
+    -fx-background-color: #0c0c0c;
+}
+
+.serverJoinPublicContainerInput {
+    -fx-background-color: #f2f2f2;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.serverJoinPublicButton {
+    -fx-text-fill: #ffffff;
+    -fx-background-color: #00fa9a;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.serverJoinPublicButton:hover {
+    -fx-cursor: hand;
+}
+
+.serverJoinPublicBar {
+    -fx-background-color: #f84752;
+}
+
+
+
+
+.serverLine {
+    -fx-background-color: #00fa9a;
+}

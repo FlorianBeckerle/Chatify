@@ -1,0 +1,70 @@
+.userBackground {
+    -fx-background-color: rgba(0,0,0,0.9);
+}
+
+.userContainerTop {
+    -fx-background-color: #0c0c0c;
+}
+
+.userContainerLeft {
+    -fx-background-color: #f84752;
+}
+
+.userContainerRight {
+    -fx-background-color: #ffffff;
+}
+
+
+
+.userCloseBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #f84752;
+}
+
+.userCloseBtn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+}
+
+.userCloseBtn:pressed {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+    -fx-text-fill: #000000;
+}
+
+.userInput {
+    -fx-text-fill: #000000;
+    -fx-background-color: #f2f2f2;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+}
+
+.userInputLine {
+    -fx-background-color: #f84752;
+}
+
+.userConfirmBtn {
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 0px;
+    -fx-border-radius: 0px;
+    -fx-background-color: #f84752;
+}
+
+.userConfirmBtn:hover {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+}
+
+.userConfirmBtn:pressed {
+    -fx-cursor: hand;
+    -fx-background-color: #00fa9a;
+    -fx-text-fill: #000000;
+}
+
+
+
+.serverLine {
+    -fx-background-color: #00fa9a;
+}
